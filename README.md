@@ -1,4 +1,5 @@
 # coopermeitzcom
+#### Official Sponsor of the 'I hate Vue3 Club'
 
 ## Project setup
 ```
