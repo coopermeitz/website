@@ -1,15 +1,19 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <aboutMe />
+    <a href="@/assets/coopermeitz-resume.pdf" target="_blank"
+      >Download my resume
+    </a>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 
+import aboutMe from "@/components/AboutMe.vue";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-  }
-}
+    aboutMe,
+  },
+};
 </script>
