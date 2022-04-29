@@ -1,33 +1,49 @@
 <template>
-  <v-btn id="social-media" @click="openProfile()" outlined rounded elevation="2">
-    <img :src="`${publicPath}${logoFileUrl}`" height="25px" width="25px" :alt="altText"/> {{text}}
+  <v-btn
+    id="social-media-button"
+    @click="openProfile()"
+    outlined
+    rounded
+    elevation="2"
+  >
+    <img
+      :src="`${publicPath}${logoFileUrl}`"
+      height="25px"
+      width="25px"
+      :alt="altText"
+    />
+    {{ text }}
   </v-btn>
 </template>
 
 <script>
 export default {
-  name: "social-media-button",
+  name: "social-media",
   props: {
-      logoFileUrl: String,
-      externalUrl: String,
-      text: String,
-      altText: String
+    // The filename of the logo PNG. Does not need any path to it, just the filename.
+    logoFileUrl: String,
+    // The external URL that the button should open a new tab for when clicked.
+    externalUrl: String,
+    // Text that is displayed to the right of the company's icon.
+    text: String,
+    // Alt text for the logo for accessibility/errors.
+    altText: String,
   },
   methods: {
-      openProfile() {
-          window.open(this.externalUrl, "_blank")
-      }
+    openProfile() {
+      window.open(this.externalUrl, "_blank");
+    },
   },
   data() {
-      return {
-          publicPath: process.env.BASE_URL
-      }
-  }
+    return {
+      publicPath: process.env.BASE_URL,
+    };
+  },
 };
 </script>
 
 <style scoped>
-#social-media {
+#social-media-button {
   display: flex;
   align-items: center;
   background-color: white;

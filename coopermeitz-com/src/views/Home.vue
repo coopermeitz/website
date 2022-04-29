@@ -1,19 +1,18 @@
 <template>
   <div class="home">
-    <aboutMe />
-    <a href="@/assets/coopermeitz-resume.pdf" target="_blank"
+    <!-- <a href="@/assets/coopermeitz-resume.pdf" target="_blank"
       >Download my resume
-    </a>
+    </a> -->
+    <baseball-card image-url="elementary.jpg" :bulletPoints="['2-time spelling beee champion', 'won the tech fair once']" />
   </div>
 </template>
 
 <script>
-
-import aboutMe from "@/components/AboutMe.vue";
+import BaseballCard from "../components/home/BaseballCard.vue";
 export default {
   name: "Home",
   components: {
-    aboutMe,
+    BaseballCard,
   },
 };
 </script>

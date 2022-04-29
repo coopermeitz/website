@@ -1,12 +1,11 @@
 <template>
   <v-footer color="primary">
-    <SocialMediaButton
+    <social-media-button
       :logoFileUrl="linkedInLogo"
       :externalUrl="linkedInUrl"
       text="Connect"
-      altText="LinkedIn Logo"
-  />
-  <SocialMediaButton
+      altText="LinkedIn Logo" />
+    <social-media-button
       :logoFileUrl="twitterLogo"
       :externalUrl="twitterUrl"
       text="Follow me"
@@ -16,6 +15,7 @@
 
 <script>
 import SocialMediaButton from "@/components/footer/SocialMediaButton.vue";
+
 export default {
   name: "site-footer",
   components: { SocialMediaButton },
@@ -24,7 +24,7 @@ export default {
       linkedInUrl: "https://www.linkedin.com/in/coopermeitz/",
       linkedInLogo: "linkedin.png",
       twitterUrl: "https://pastebin.com/arGTDXDM",
-      twitterLogo: "twitter.png"
+      twitterLogo: "twitter.png",
     };
   },
   methods: {},

@@ -4,7 +4,7 @@
 export default class Project {
     title;
     description;
-    
+
     /**
      * The (simple) constructor for the Project class. 
      * @param {String} title - The title of the project I worked on.
