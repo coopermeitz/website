@@ -18,16 +18,16 @@
 
 <script>
 export default {
-  name: "social-media",
+  name: "social-media-button",
   props: {
     // The filename of the logo PNG. Does not need any path to it, just the filename.
-    logoFileUrl: String,
+    logoFileUrl: { type: String, required: true },
     // The external URL that the button should open a new tab for when clicked.
-    externalUrl: String,
+    externalUrl: { type: String, required: true },
     // Text that is displayed to the right of the company's icon.
-    text: String,
+    text: { type: String, required: true },
     // Alt text for the logo for accessibility/errors.
-    altText: String,
+    altText: { type: String, required: true },
   },
   methods: {
     openProfile() {

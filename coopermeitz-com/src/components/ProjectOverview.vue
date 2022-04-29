@@ -10,9 +10,9 @@ export default {
   name: "project-overview",
   props: {
     // The title of the project.
-    title: String,
+    title: { type: String, required: true },
     // A brief description of the project.
-    description: String,
+    description: { type: String, required: true },
   },
 };
 </script>

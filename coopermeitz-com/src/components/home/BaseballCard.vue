@@ -21,10 +21,10 @@ export default {
   components: { "vue-flip": VueFlip },
   props: {
     // The filename of the picture that will be used for this card.
-    imageUrl: String,
+    imageUrl: { type: String, required: true },
     // Bullet points of interesting facts to put on the back of the card. This will act
     // as the card's stats.
-    bulletPoints: Array,
+    bulletPoints: { type: Array, required: true },
   },
   data() {
     return {
