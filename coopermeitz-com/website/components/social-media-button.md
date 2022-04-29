@@ -13,3 +13,13 @@
 <!-- @vuese:social-media-button:props:end -->
 
 
+## Methods
+
+<!-- @vuese:social-media-button:methods:start -->
+|Method|Description|Parameters|
+|---|---|---|
+|openProfile|Opens a new tab of the link that is specified as a prop.|-|
+
+<!-- @vuese:social-media-button:methods:end -->
+
+

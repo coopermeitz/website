@@ -30,6 +30,10 @@ export default {
     altText: { type: String, required: true },
   },
   methods: {
+    /**
+     * @vuese
+     * Opens a new tab of the link that is specified as a prop.
+     */
     openProfile() {
       window.open(this.externalUrl, "_blank");
     },
