@@ -1,15 +1,24 @@
 <template>
+  <!-- Footer fixed to the bottom of the screen -->
   <v-footer color="primary" app bottom fixed padless>
+    <!-- LinkedIn button -->
     <social-media-button
       :logoFileUrl="linkedInLogo"
       :externalUrl="linkedInUrl"
       text="Connect"
       altText="LinkedIn Logo" />
+    <!-- Twitter button -->
     <social-media-button
       :logoFileUrl="twitterLogo"
       :externalUrl="twitterUrl"
       text="Follow me"
-      altText="Twitter Logo"
+      altText="Twitter Logo" />
+    <!-- Github button -->
+    <social-media-button
+      :logoFileUrl="githubLogo"
+      :externalUrl="githubUrl"
+      text="Contribute"
+      altText="Github Logo"
   /></v-footer>
 </template>
 
@@ -25,6 +34,8 @@ export default {
       linkedInLogo: "linkedin.png",
       twitterUrl: "https://pastebin.com/arGTDXDM",
       twitterLogo: "twitter.png",
+      githubUrl: "https://github.com/coopermeitz",
+      githubLogo: "github.png",
     };
   },
   methods: {},
