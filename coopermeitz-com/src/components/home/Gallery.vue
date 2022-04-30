@@ -4,8 +4,12 @@
       <baseball-card-component v-bind="cards[currentIndex]" />
     </div>
     <div id="gallery-controller">
-      <v-btn @click="swapIndex(-1)" icon x-large> <v-icon> mdi-arrow-left-drop-circle </v-icon> </v-btn>
-      <v-btn @click="swapIndex(1)" icon x-large> <v-icon> mdi-arrow-right-drop-circle </v-icon> </v-btn>
+      <v-btn @click="swapIndex(-1)" icon x-large>
+        <v-icon> mdi-arrow-left-drop-circle </v-icon>
+      </v-btn>
+      <v-btn @click="swapIndex(1)" icon x-large>
+        <v-icon> mdi-arrow-right-drop-circle </v-icon>
+      </v-btn>
     </div>
   </div>
 </template>
@@ -30,6 +34,18 @@ export default {
         this.currentIndex = (this.currentIndex + i) % this.cards.length;
       }
     },
+  },
+  mounted() {
+    window.addEventListener("keydown", function (e) {
+      switch (e.key) {
+        case "ArrowLeft":
+          this.swapIndex(-1);
+          break;
+        case "ArrowRight":
+          this.swapIndex(1);
+          break;
+      }
+    }.bind(this));
   },
 };
 </script>
