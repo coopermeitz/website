@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>This is a page of projects I've worked on. It's a work-in-progress.</h1>
     <project-overview v-for="(p, index) in projects" :key="index" v-bind="p" />
   </div>
 </template>

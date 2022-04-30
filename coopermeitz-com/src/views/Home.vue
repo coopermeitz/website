@@ -3,6 +3,9 @@
     <!-- <a href="@/assets/coopermeitz-resume.pdf" target="_blank"
       >Download my resume
     </a> -->
+    <br />
+    <br />
+    <!-- lol imagine using line breaks for formatting -->
     <card-gallery />
   </div>
 </template>

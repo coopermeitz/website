@@ -43,4 +43,8 @@ export default {
 </script>
 
 <style scoped>
+.v-footer {
+  display: flex;
+  justify-content: center;
+}
 </style>

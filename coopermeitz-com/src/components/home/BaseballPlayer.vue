@@ -1,20 +1,19 @@
 <template>
-    <div class="overlay"></div>
+  <div class="overlay"></div>
 </template>
 
 <script>
 export default {
-    name: "baseball-player"
-}
+  name: "baseball-player",
+};
 </script>
 
 <style scoped>
-
 .overlay {
   width: 15vmin;
   height: 15vmin;
   border: 6px solid lemonchiffon;
-  background: #ffff33;
+  background: rgb(234, 174, 89);
   position: absolute;
   bottom: 50px;
   left: 30px;

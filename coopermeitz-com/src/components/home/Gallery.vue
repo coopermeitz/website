@@ -1,11 +1,11 @@
 <template>
   <v-col>
     <!-- centered row for holding the currently shown card -->
-    <v-row id="current-card">
+    <v-row id="current-card" class="centered-row">
       <baseball-card-component v-bind="cards[currentIndex]" />
     </v-row>
     <!-- centered row for holding the buttons for cycling cards -->
-    <v-row id="gallery-controller">
+    <v-row id="gallery-controller" class="centered-row">
       <v-btn @click="swapIndex(-1)" icon x-large>
         <v-icon> mdi-arrow-left-drop-circle </v-icon>
       </v-btn>
@@ -13,11 +13,14 @@
         <v-icon> mdi-arrow-right-drop-circle </v-icon>
       </v-btn>
     </v-row>
+    <v-row class="centered-row">
+      <h3>Flip the cards by clicking on them.</h3>
+    </v-row>
   </v-col>
 </template>
 
 <script>
-import { initializeCards } from "@/utility-classes/BaseballCard.js";
+import { initializeCards } from "@/personal-data/generateCards.js";
 import BaseballCardComponent from "@/components/home/BaseballCard.vue";
 export default {
   name: "card-gallery",
@@ -86,11 +89,7 @@ export default {
 </script>
 
 <style scoped>
-#current-card {
-  display: flex;
-  justify-content: center;
-}
-#gallery-controller {
+.centered-row {
   display: flex;
   justify-content: center;
 }

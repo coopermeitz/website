@@ -23,9 +23,38 @@
       </template>
       <template v-slot:back>
         <div class="card-appearance">
-          <ul>
-            <li v-for="(p, index) in bulletPoints" :key="index">{{ p }}</li>
-          </ul>
+          <v-container id="card-back">
+            <v-row align="center">
+              <v-col align="center">
+                <v-card
+                  width="80%"
+                  class="rounded-xl"
+                  color="rgb(234,174,89)"
+                  elevation="0"
+                >
+                  <v-sheet class="card-format">
+                    <v-card-title
+                      class="thick-name justify-center"
+                      width="100%"
+                    >
+                      <img
+                        :src="`${publicPath}name-coolfont.png`"
+                        width="100%"
+                      />
+                    </v-card-title>
+                    <v-card-subtitle class="years-played">
+                      {{ yearsPlayed }}
+                    </v-card-subtitle>
+                  </v-sheet>
+                </v-card>
+              </v-col>
+            </v-row>
+            <v-row>
+              <ul>
+                <li v-for="(p, index) in bulletPoints" :key="index">{{ p }}</li>
+              </ul>
+            </v-row>
+          </v-container>
         </div>
       </template>
     </vue-flip>
@@ -43,6 +72,10 @@ export default {
     imageUrl: { type: String, required: true },
     // What 'position' I played during the duration of this card. (ie. elementary school)
     position: { type: String, required: true },
+    // A string representing the years that this card represents. If the card was about my
+    // time from 2001 to 2002, the string would be "2001 - 2002" (or another format -- I can't
+    // stop you)
+    yearsPlayed: { type: String, required: true },
     // Bullet points of interesting facts to put on the back of the card. This will act
     // as the card's stats.
     bulletPoints: { type: Array, required: true },
@@ -50,6 +83,7 @@ export default {
   data() {
     return {
       publicPath: process.env.BASE_URL,
+      name: "COOPER MEITZ",
     };
   },
 };
@@ -68,6 +102,8 @@ https://codepen.io/kitjenson/pen/YoLWqX?editors=1111
   background-color: lemonchiffon;
   width: 500px;
   height: 600px;
+  outline: 3px ridge black;
+  border-radius: 1rem;
 }
 
 .card-photo {
@@ -97,5 +133,34 @@ https://codepen.io/kitjenson/pen/YoLWqX?editors=1111
   position: absolute;
   right: 20px;
   bottom: 20px;
+}
+
+#card-back {
+  justify-content: center;
+}
+
+.card-format {
+  background-color: rgb(234, 174, 89);
+  border-style: solid;
+  border-width: 4px;
+  border-color: black;
+}
+
+.thick-name {
+  font-weight: 900;
+  font-size: 40px;
+}
+
+.years-played {
+  font-size: 20px;
+}
+
+ul {
+  list-style-type: "> ";
+  font-family: Lucida Sans Typewriter;
+}
+
+li::marker {
+  font-weight: 900;
 }
 </style>
