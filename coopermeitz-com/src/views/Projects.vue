@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <project-overview v-for="p in projects" :key="p.title" v-bind="p" />
+    <project-overview v-for="(p, index) in projects" :key="index" v-bind="p" />
   </div>
 </template>
 

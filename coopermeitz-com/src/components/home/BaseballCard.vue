@@ -1,15 +1,16 @@
 <template>
   <div id="card">
-    <vue-flip active-click height="750px" width="540px">
+    <vue-flip active-click height="100%" width="100%">
       <template v-slot:front>
         <div class="card-appearance">
           <img
             class="card-photo"
             :src="`${publicPath}${imageUrl}`"
-            height="80%"
             width="100%"
           />
-          <div class="overlay"></div>
+          <v-col>
+            <baseball-player />
+          </v-col>
           <v-col>
             <v-row>
               <div class="name">COOPER MEITZ</div>
@@ -23,7 +24,7 @@
       <template v-slot:back>
         <div class="card-appearance">
           <ul>
-            <li v-for="p in bulletPoints" :key="p">{{ p }}</li>
+            <li v-for="(p, index) in bulletPoints" :key="index">{{ p }}</li>
           </ul>
         </div>
       </template>
@@ -33,10 +34,10 @@
 
 <script>
 import VueFlip from "vue-flip";
-
+import BaseballPlayer from "@/components/home/BaseballPlayer.vue";
 export default {
   name: "baseball-card",
-  components: { "vue-flip": VueFlip },
+  components: { "vue-flip": VueFlip, BaseballPlayer },
   props: {
     // The filename of the picture that will be used for this card.
     imageUrl: { type: String, required: true },
@@ -58,67 +59,32 @@ I got most of the CSS available from this project (MIT license).
 https://codepen.io/kitjenson/pen/YoLWqX?editors=1111
 <style scoped>
 #card {
-  /* these dimensions are to size the card with the same ratio as a real card*/
-  height: 750px;
-  width: 540px;
+  width: 500px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
 }
-
 .card-appearance {
   background-color: lemonchiffon;
-  height: 750px;
-  width: 540px;
+  width: 500px;
+  height: 600px;
 }
 
 .card-photo {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 500px;
   border: 12px solid lemonchiffon;
+  display: block;
 }
 
 .name {
   font-family: "Arial Condensed", sans-serif;
-  font-size: 50px;
-  font-weight: 600;
   text-align: right;
   width: 100%;
-  line-height: 80px;
+  font-size: 50px;
+  line-height: 55px;
   position: absolute;
   right: 20px;
   bottom: 50px;
-}
-
-.overlay {
-  width: 150px;
-  height: 150px;
-  border: 6px solid lemonchiffon;
-  background: #ffff33;
-  position: absolute;
-  bottom: 20px;
-  left: 25px;
-  font-family: monospace;
-  line-height: 23px;
-  font-size: 18px;
-  font-weight: 600;
-  text-align: center;
-  transform: rotate(45deg);
-  /*   overflow:hidden; */
-}
-.overlay:after {
-  content: "";
-  background-image: url("https://images.onlinelabels.com/images/clip-art/GDJ/Vintage%20Baseball%20Player%20Illustration-265699.png");
-  background-size: 100% 100%;
-  width: 95%;
-  height: 95%;
-  position: absolute;
-  top: -5%;
-  left: -5%;
-  transform: rotate(-45deg);
-  mix-blend-mode: multiply;
-}
-
-.baseball-player {
-  width: 100%;
-  height: 100%;
 }
 
 .position {
@@ -130,6 +96,6 @@ https://codepen.io/kitjenson/pen/YoLWqX?editors=1111
   line-height: 38px;
   position: absolute;
   right: 20px;
-  bottom: 35px;
+  bottom: 20px;
 }
 </style>

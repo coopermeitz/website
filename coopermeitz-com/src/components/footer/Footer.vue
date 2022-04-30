@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="primary">
+  <v-footer color="primary" app bottom fixed padless>
     <social-media-button
       :logoFileUrl="linkedInLogo"
       :externalUrl="linkedInUrl"
