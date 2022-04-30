@@ -1,17 +1,19 @@
 <template>
-  <div>
-    <div id="current-card">
+  <v-col>
+    <!-- centered row for holding the currently shown card -->
+    <v-row id="current-card">
       <baseball-card-component v-bind="cards[currentIndex]" />
-    </div>
-    <div id="gallery-controller">
+    </v-row>
+    <!-- centered row for holding the buttons for cycling cards -->
+    <v-row id="gallery-controller">
       <v-btn @click="swapIndex(-1)" icon x-large>
         <v-icon> mdi-arrow-left-drop-circle </v-icon>
       </v-btn>
       <v-btn @click="swapIndex(1)" icon x-large>
         <v-icon> mdi-arrow-right-drop-circle </v-icon>
       </v-btn>
-    </div>
-  </div>
+    </v-row>
+  </v-col>
 </template>
 
 <script>
@@ -27,16 +29,31 @@ export default {
     };
   },
   methods: {
-    swapIndex(i) {
-      if (this.currentIndex === 0 && i < 0) {
-        this.currentIndex = this.cards.length - 1;
-      } else {
-        this.currentIndex = (this.currentIndex + i) % this.cards.length;
-      }
+    /**
+     * @vuese
+     * Swaps the current index value so a new card can be shown. The method
+     * also handles cases where the index would be out of bounds with the array.
+     * @param {Number} delta the amount to change the current index by.
+     * -1 denotes moving left one card and +1 denotes moving right one card.
+     * Should only be called with units of length 1 (to avoid skipping a card) but
+     * can technically be used with any number.
+     */
+    swapIndex(delta) {
+      this.currentIndex = this.mod(
+        this.currentIndex + delta,
+        this.cards.length
+      );
     },
-  },
-  mounted() {
-    window.addEventListener("keydown", function (e) {
+
+    /**
+     * @vuese
+     * Event listener for 'keydown' events for the left and right arrow keys.
+     * Allows the keys to simulate button presses of the left and right arrows,
+     * respectively. A left arrow click will move the gallery one card to the left
+     * and a right arrow click will move the gallery one card to the right.
+     * @param {Event} e the 'keydown' event.
+     */
+    handleArrowClick(e) {
       switch (e.key) {
         case "ArrowLeft":
           this.swapIndex(-1);
@@ -45,13 +62,35 @@ export default {
           this.swapIndex(1);
           break;
       }
-    }.bind(this));
+    },
+    /**
+     * @vuese
+     * Helper method for handling mod calculations of potentially
+     * negative numbers. Returns the positive value that is a positive,
+     * valid index of the array.
+     * @param {Number} n the value that the mod operation is applied to.
+     * @param {Number} m the divisor of the mod operation.
+     * @returns {Number} the positive mod value of n % m. A valid index
+     * of the array of cards.
+     */
+    mod(n, m) {
+      return ((n % m) + m) % m;
+    },
+  },
+
+  mounted() {
+    // Add the event listener to change cards on arrow clicks.
+    window.addEventListener("keydown", this.handleArrowClick);
   },
 };
 </script>
 
 <style scoped>
 #current-card {
+  display: flex;
+  justify-content: center;
+}
+#gallery-controller {
   display: flex;
   justify-content: center;
 }
